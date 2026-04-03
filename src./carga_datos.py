@@ -14,7 +14,7 @@ def parsear_linea(linea):
     '''
     
     
-def cargar_datos(ruta_archivo:
+def cargar_datos(ruta_archivo):
     '''
     abrir el archivo, recorrer las líneas, aplicar parseo, generar diccionario por participante, devolver lista de registros de participantes
     
@@ -29,3 +29,4 @@ def cargar_datos(ruta_archivo:
         registro de participantes
 
     '''
+    
