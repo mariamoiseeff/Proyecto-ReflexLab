@@ -1,1 +1,8 @@
-# Proyecto-ReflexLabnombres: Davidov Sofia, Maria Moiseeff, Clara Antelo Funcion del proyecto: analizar datos de ReflexLab para estudiar los tiempo de reaccion y las respuestas de los participantes, generando metricas que nos permiten evaluar el resultado. Que se encuentra dentro: el proyecto incluye, modulos para cargar, validar, procesar y validar datos. Un archivo pricipal y una carpeta con los datos y diagramas del sistema. Como se ejecuta: el programa carga los datos, los valida y los procesa para calcular metricas como tiempo de reaccion y porcentaje de aciertos, depues muestra los resultados por pantalla. 
+# Proyecto-ReflexLab
+Nombres: Sofia Davidov, Maria Moiseeff, Clara Antelo Cernadas
+
+Funcion del proyecto: Analizar datos de ReflexLab para estudiar los tiempo de reaccion y las respuestas de los participantes, generando metricas que nos permiten evaluar el resultado. 
+
+Que se encuentra dentro: el proyecto incluye, modulos para cargar, validar, procesar y validar datos. Un archivo pricipal y una carpeta con los datos y diagramas del sistema. 
+
+Como se ejecuta: el programa carga los datos, los valida y los procesa para calcular metricas como tiempo de reaccion y porcentaje de aciertos, depues muestra los resultados por pantalla. 
