@@ -15,6 +15,7 @@ def parsear_linea(linea):
     
     partes = linea.strip().split(",")
     
+    
     return[partes[0], 
            partes[1], 
            partes[2], 
@@ -43,16 +44,17 @@ def cargar_datos(ruta_archivo):
     
     registros_participantes = {}
   
-    with open ("datos.csv", "r") as archivo:
+    with open (ruta_archivo, "r") as archivo:
         for linea in archivo:
             parseo = parsear_linea(linea)
+            print(parseo)
             #comentario: agregar funcion de validacion, hay que abrir archivo de validacion??: 
             #comentario: parseo_validado = validar_registro(parseo) --> cambiar todo a parseo validado, o igualar funcion de validacion a parseo y cambair nombre de variable de la de arriba
 
             #si encontro dato invalido, no tomarlo en cuenta, volver al ciclo for a ver la siguiente linea: 
             #if parseo_validado == None: 
                 #continue
-            from src.validacion_datos import validar_registro
+            from validacion_datos import validar_registro
             parseo_validado = validar_registro(parseo)
             
             id_part = parseo[0]
