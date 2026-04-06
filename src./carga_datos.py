@@ -10,7 +10,7 @@ def parsear_linea(linea):
     Returns
     -------
     list
-        lista con datos parseados
+        lista de str con datos separados
     '''
     
     partes = linea.strip().split(",")
@@ -24,6 +24,8 @@ def parsear_linea(linea):
            partes[6], 
            partes[7]]
 
+#comentario: tendria que devolver lista de str pero sin conversion,porque eso lo va a hacer la de validar
+#borarria el return de la lista con las conversiones para que solo return partes
    
     
 def cargar_datos(ruta_archivo):
@@ -38,7 +40,7 @@ def cargar_datos(ruta_archivo):
     Returns
     -------
     list
-        registro de participantes
+        registro de diccionrios de participantes
 
     '''
     
@@ -46,6 +48,14 @@ def cargar_datos(ruta_archivo):
     with open ("datos.csv", "r") as archivo:
         for linea in archivo:
             parseo = parsear_linea(linea)
+            #comentario: agregar funcion de validacion, hay que abrir archivo de validacion??: 
+            #comentario: parseo_validado = validar_registro(parseo) --> cambiar todo a parseo validado, o igualar funcion de validacion a parseo y cambair nombre de variable de la de arriba
+            
+            #si encontro dato invalido, no tomarlo en cuenta, volver al ciclo for a ver la siguiente linea: 
+            #if parseo_validado == None: 
+                #continue
+            
+            
             id_part = parseo[0]
             
             if id_part not in registros_participantes:
@@ -67,3 +77,5 @@ def cargar_datos(ruta_archivo):
                 registros_participantes[id_part]["condicion"].append(parseo[7])
     
     return list(registros_participantes.values())
+
+#comentario: cambiaria el codigo para que vaya haciendo lista segun los trials y de todos los campos por participante
