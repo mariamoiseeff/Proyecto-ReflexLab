@@ -41,3 +41,31 @@ def calcular_tasa_error(datos: list) -> float:
         resultado de division de respuestas incorrectas / respuestas totales.
 
     '''
+    
+    if len(datos) == 0:
+        return 0
+    
+    cantidad_incorrectas = 0 
+    
+    for registro in datos:
+        if registro ["resultado_respuesta"]== "incorrecto":
+            cantidad_incorrectas += 1 
+            
+    tasa_error = cantidad_incorrectas / len(datos)
+    return tasa_error
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
