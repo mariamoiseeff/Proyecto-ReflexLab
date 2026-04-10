@@ -57,8 +57,7 @@ def calcular_tasa_error(datos: list) -> float:
             
             
             
-            
-            
+
             
             
             

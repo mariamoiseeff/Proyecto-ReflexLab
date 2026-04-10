@@ -54,7 +54,7 @@ def cargar_datos(ruta_archivo):
             #si encontro dato invalido, no tomarlo en cuenta, volver al ciclo for a ver la siguiente linea: 
             #if parseo_validado == None: 
                 #continue
-            from validacion_datos import validar_registro
+            from src.validacion_datos import validar_registro
             parseo_validado = validar_registro(parseo)
             
             id_part = parseo[0]
