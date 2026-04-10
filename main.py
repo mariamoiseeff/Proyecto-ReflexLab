@@ -1,10 +1,10 @@
-from src.carga_datos import cargar_datos
-from src.procesamiento_datos import filtrar_por_participante
-from src.metricas import calcular_tiempo_reaccion_promedio
-from src.metricas import calcular_tasa_error
+from carga_datos import cargar_datos
+from procesamiento_datos import filtrar_por_participante
+from metricas import calcular_tiempo_reaccion_promedio
+from metricas import calcular_tasa_error
 
 
-datos_validos = cargar_datos("datos.csv")
+datos_validos = cargar_datos("../datos/ReflexLab_mock_data.csv")
 
 id_participante = input("ID de participante: ")
 participante_pedido = filtrar_por_participante(datos_validos, id_participante)
