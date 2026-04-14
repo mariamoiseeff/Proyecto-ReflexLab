@@ -44,8 +44,10 @@ def validar_registro(registro):
         return None
     
     #validar respuesta tiene que ser un entero
-    if registro[4].isdigit(): 
-        datos_validados.append(int(registro[4]))
+    if registro[4] == "True": 
+        datos_validados.append(True)
+    elif registro[4] == "False":
+        datos_validados.append(False)
     else:
         return None
     
