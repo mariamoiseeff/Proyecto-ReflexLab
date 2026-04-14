@@ -56,6 +56,8 @@ def cargar_datos(ruta_archivo):
                 #continue
             from src.validacion_datos import validar_registro
             parseo_validado = validar_registro(parseo)
+            if parseo_validado == None:
+                continue
             
             id_part = parseo[0]
             
