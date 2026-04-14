@@ -48,15 +48,14 @@ def cargar_datos(ruta_archivo):
         for linea in archivo:
             parseo = parsear_linea(linea)
             print(parseo)
-            #comentario: agregar funcion de validacion, hay que abrir archivo de validacion??: 
-            #comentario: parseo_validado = validar_registro(parseo) --> cambiar todo a parseo validado, o igualar funcion de validacion a parseo y cambair nombre de variable de la de arriba
-
+           
             #si encontro dato invalido, no tomarlo en cuenta, volver al ciclo for a ver la siguiente linea: 
-            #if parseo_validado == None: 
-                #continue
+            
             from src.validacion_datos import validar_registro
-            parseo_validado = validar_registro(parseo)
-            if parseo_validado == None:
+            try: 
+                parseo_validado = validar_registro(parseo)
+            except ValueError: 
+                print("error en la carga de datos porque hay datos invalidos en esta linea, entonces se descarta.")
                 continue
             
             id_part = parseo[0]
