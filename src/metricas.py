@@ -15,9 +15,9 @@ def calcular_tiempo_reaccion_promedio(datos,id_buscado):
         promedio: suma de todos los tiempos de reaccion dividido la cantidad.
     '''
    for registro_participante in datos:
-        if registro_participante["id"] == id_buscado:
+        if registro_participante["id_participante"] == id_buscado:
             
-            tiempos_reaccion = registro_participante["tiempo de reaccion"]
+            tiempos_reaccion = registro_participante["tiempo_reaccion"]
             promedio = sum(tiempos_reaccion) / len(tiempos_reaccion)
             
             return promedio
@@ -44,17 +44,17 @@ def calcular_tasa_error(datos,id_buscado):
     cantidad_total = 0
 
     for registro in datos:
-        if registro["id"] == id_buscado:
+        if registro["id_participante"] == id_buscado:
             
             cantidad_total += 1
-            
-            if registro["resultado_respuesta"] == "incorrecto":
-                cantidad_incorrectas += 1
+            for respuesta in registro["resultado_respuesta"]:
+                if respuesta == "incorrecto":
+                    cantidad_incorrectas += 1
 
     if cantidad_total == 0:
         return 0
 
-    tasa_error = cantidad_incorrectas / cantidad_total
+    tasa_error = cantidad_incorrectas / len(registro["resultado_respuesta"])
     return tasa_error 
             
             
