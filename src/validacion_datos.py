@@ -13,63 +13,97 @@ def validar_registro(registro):
     -------
     lista
     lista de valores verificados separados en sus categorias
+    
+    Raises
+    ------
+    ValueError si hay algun dato invalido
 
     '''
     datos_validados = []
-    #validar id_participante
     
-    if registro[0].isdigit(): 
-        datos_validados.append(int(registro[0]))
+    #validar id_participante
+    #tengo que validar que el id exista, nose como hacerlo todavia
+    try: 
+        int(registro[0])
+        if registro[0] <= 0:
+            raise ValueError("El id del participante no puede ser un numero negativo")
+    except: 
+        raise ValueError("El id del participante es invalido")
     else: 
-        return None
+        datos_validados.append(int(registro[0]))
     
     #validar que trial sea un entero
-    
-    if registro[1].isdigit():
+    try: 
+        int(registro[1])
+        if registro[1]<= 0: 
+            raise ValueError("Trial no puede ser un numero negativo")
+    except: 
+        raise ValueError("Trial tiene que ser un entero")
+    else: 
         datos_validados.append(int(registro[1]))
-    else: 
-        return None
     
-    #validar estimulo solo go o no go
-    estimulo = registro[2].lower()
-    if estimulo in ["go" , "nogo"]: 
-        datos_validados.append(estimulo)
+    #validar estimulo solo go o no go y validar que sea str que pueda convertirse todo a minusculas
+    try: 
+        estimulo = registro[2].lower()
+        if estimulo not in ["go" , "nogo"]: 
+            raise ValueError("estimulo invalido")
+    except: 
+        raise ValueError("estimulo invalido")
+    
     else: 
-        return None
+        datos_validados.append(estimulo)
+    
     
     #validar tiempo de inicio
     try: 
-        datos_validados.append(float(registro[3]))
+        float(registro[3])
+        if registro[3] < 0: 
+            raise ValueError("tiempo de inicio no puede ser negativo")
     except: 
-        return None
+        raise ValueError("tiempo de inicio invalido")
+    else: 
+        datos_validados.append(float(registro[3]))
     
-    #validar respuesta tiene que ser un entero
+    
+    #validar respuesta tiene que ser solo True (si respondio) y False (si no respondio)
+
     if registro[4] == "True": 
         datos_validados.append(True)
     elif registro[4] == "False":
         datos_validados.append(False)
     else:
-        return None
+        raise ValueError("respuesta invalida, debe ser True o False unicamente")
     
     #tiempo de reaccion
     try:
-        datos_validados.append(float(registro[5]))
+        float(registro[5])
+        if registro[5] < 0: 
+            raise ValueError("tiempo de reaccion no puede ser negativo")
     except:
-        return None
+        raise ValueError("tiempo de reaccion invalido")
+    else: 
+        datos_validados.append(float(registro[5]))
 
-    # resultado
-    resultado = registro[6].lower()
-    if resultado in ["correcto", "incorrecto"]:
-        datos_validados.append(resultado)
+
+    #resultado
+    try: 
+        resultado = registro[6].lower()
+        if resultado not in ["correcto", "incorrecto"]:
+            raise ValueError("resultado invalido: puede ser unicamente 'correcto' o 'incorrecto'")
+    except: 
+        raise ValueError("resultado invalido")
     else:
-        return None
+        datos_validados.append(resultado)
 
     # condicion
-    condicion = registro[7].lower()
-    if condicion in ["alta_go" , "balanceada"]: 
-        datos_validados.append(condicion)
+    try:
+        condicion = registro[7].lower()
+        if condicion not in ["alta_go" , "balanceada"]: 
+            raise ValueError("condicion invalida, puede ser unicamente 'alta_go' o 'balanceada' ")
+    except: 
+        raise ValueError("condicion invalida")
     else: 
         datos_validados.append(condicion)
-        return None
 
+    #si todo salio bien, todos los datos validos, se devuelven. sino, se corta la funcion
     return datos_validados

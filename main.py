@@ -4,15 +4,19 @@ from src.metricas import calcular_tiempo_reaccion_promedio
 from src.metricas import calcular_tasa_error
 
 ruta = "datos/ReflexLab_mock_data.csv"
-datos_validos = cargar_datos(ruta)
+datos_validos = cargar_datos(ruta) #nose si tenemos que usar try-except aca porque tenemos un try-expect dentro de carga datos que corresponde a la validacion
 
-id_participante = input("ID de participante: ")
+id_participante = input("ID de participante: ") #tenemos que validar que el id sea valido?
 participante_pedido = filtrar_por_participante(datos_validos, id_participante)
 print(participante_pedido)        
 
+#haria bloque try-except porque vamos a manejar errores dentro del promedio
 promedio_id_participante = calcular_tiempo_reaccion_promedio(datos_validos, id_participante)
-print(f"El promedio del participante es: {promedio_id_participante}")
+ #cambiaria para que el argumento de estas funciones sea participante_pedido
+print(f"El promedio del participante es: {promedio_id_participante}") 
 
+#otro bloque try-except poruqe vamos a manejar errorer dentro de calcular tasa error
 tasa_error_id_participante = calcular_tasa_error(datos_validos, id_participante)
+#cambiaria para que el argumento de estas funciones sea participante_pedido
 print(f"La tasa de error del participante es: {tasa_error_id_participante}")
 
