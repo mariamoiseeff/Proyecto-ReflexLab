@@ -17,7 +17,6 @@ else:
     print(participante_pedido)        
 
 #haria bloque try-except porque vamos a manejar errores dentro del promedio
-
 promedio_id_participante = calcular_tiempo_reaccion_promedio(datos_validos, id_participante)
  #cambiaria para que el argumento de estas funciones sea participante_pedido
 print(f"El promedio del participante es: {promedio_id_participante}") 

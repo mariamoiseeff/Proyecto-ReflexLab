@@ -1,6 +1,5 @@
 #metricas
-def calcular_tiempo_reaccion_promedio(datos,id_buscado): 
-    
+def calcular_tiempo_reaccion_promedio(datos,id_buscado):    
    '''
     promedio de tiempos de reaccion de todos los participantes
     
@@ -51,8 +50,8 @@ def calcular_tasa_error(datos,id_buscado):
                 if respuesta == "incorrecto":
                     cantidad_incorrectas += 1
 
-    if cantidad_total == 0:
-        return 0
+        if cantidad_total == 0:
+            return 0
 
     tasa_error = cantidad_incorrectas / len(registro["resultado_respuesta"])
     return tasa_error 
