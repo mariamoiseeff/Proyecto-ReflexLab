@@ -58,7 +58,7 @@ def cargar_datos(ruta_archivo):
                 print("error en la carga de datos porque hay datos invalidos en esta linea, entonces se descarta.")
                 continue
             
-            id_part = parseo[0]
+            id_part = int(parseo[0])
             
             if id_part not in registros_participantes:
                 registros_participantes[id_part] = {"id_participante": id_part,

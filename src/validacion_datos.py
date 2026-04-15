@@ -24,23 +24,23 @@ def validar_registro(registro):
     #validar id_participante
     #tengo que validar que el id exista, nose como hacerlo todavia
     try: 
-        int(registro[0])
-        if registro[0] <= 0:
+        id_part = int(registro[0])
+        if id_part <= 0:
             raise ValueError("El id del participante no puede ser un numero negativo")
     except: 
         raise ValueError("El id del participante es invalido")
     else: 
-        datos_validados.append(int(registro[0]))
+        datos_validados.append(id_part)
     
     #validar que trial sea un entero
     try: 
-        int(registro[1])
-        if registro[1]<= 0: 
+        trial = int(registro[1])
+        if trial <= 0: 
             raise ValueError("Trial no puede ser un numero negativo")
     except: 
         raise ValueError("Trial tiene que ser un entero")
     else: 
-        datos_validados.append(int(registro[1]))
+        datos_validados.append(trial)
     
     #validar estimulo solo go o no go y validar que sea str que pueda convertirse todo a minusculas
     try: 
@@ -56,13 +56,13 @@ def validar_registro(registro):
     
     #validar tiempo de inicio
     try: 
-        float(registro[3])
-        if registro[3] < 0: 
+        t_inicio = float(registro[3])
+        if t_inicio < 0: 
             raise ValueError("tiempo de inicio no puede ser negativo")
     except: 
         raise ValueError("tiempo de inicio invalido")
     else: 
-        datos_validados.append(float(registro[3]))
+        datos_validados.append(t_inicio)
     
     
     #validar respuesta tiene que ser solo True (si respondio) y False (si no respondio)
@@ -76,13 +76,13 @@ def validar_registro(registro):
     
     #tiempo de reaccion
     try:
-        float(registro[5])
-        if registro[5] < 0: 
+        t_reaccion = float(registro[5])
+        if t_reaccion < 0: 
             raise ValueError("tiempo de reaccion no puede ser negativo")
     except:
         raise ValueError("tiempo de reaccion invalido")
     else: 
-        datos_validados.append(float(registro[5]))
+        datos_validados.append(t_reaccion)
 
 
     #resultado

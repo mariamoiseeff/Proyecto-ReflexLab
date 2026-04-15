@@ -18,4 +18,4 @@ def filtrar_por_participante(datos, id_participante):
     for registro_participate in datos: #me agarra un diccionario a la vez
         if id_participante == registro_participate["id_participante"]: 
             return registro_participate
-        
+    return None
