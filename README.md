@@ -14,3 +14,7 @@ Errores y Validaciones:
 - Funcion cargar_datos: 
     - Para cada linea de datos se trata de validar. Si hay datos invalidos, se lanza un ValueError y se deja de leer esa linea, porque los datos invalidos no pueden ser tomados en cuenta. 
     - Se descarta esa linea invalida y se siguen recorriendo y validando las siguientes lineas de datos.
+- Funcion calcular_tiempo_reaccion_promedio: 
+    - un posible error es que la lista de tiempos de reaccion este vacia, lo manejamos lanzando un error para que se detenga la ejecucion de la funcion. 
+- Funcion calcular_tasa_error: 
+    - un posible error es que la lista de respuestas este vacia, lo manejamos lanzando un error para que se detenga la ejecucion de la funcion. 

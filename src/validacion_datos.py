@@ -85,15 +85,15 @@ def validar_registro(registro):
         datos_validados.append(t_reaccion)
 
 
-    #resultado
+    #resultado_respuesta
     try: 
-        resultado = registro[6].lower()
-        if resultado not in ["correcto", "incorrecto"]:
+        resultado_respuesta = registro[6].lower()
+        if resultado_respuesta not in ["correcto", "incorrecto"]:
             raise ValueError("resultado invalido: puede ser unicamente 'correcto' o 'incorrecto'")
     except: 
         raise ValueError("resultado invalido")
     else:
-        datos_validados.append(resultado)
+        datos_validados.append(resultado_respuesta)
 
     # condicion
     try:

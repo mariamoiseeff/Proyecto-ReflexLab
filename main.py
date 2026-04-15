@@ -18,11 +18,11 @@ else:
 
 #haria bloque try-except porque vamos a manejar errores dentro del promedio
 promedio_id_participante = calcular_tiempo_reaccion_promedio(datos_validos, id_participante)
- #cambiaria para que el argumento de estas funciones sea participante_pedido
+ #cambiar el argumento de estas funciones para que sea participante_pedido
 print(f"El promedio del participante es: {promedio_id_participante}") 
 
-#otro bloque try-except poruqe vamos a manejar errorer dentro de calcular tasa error
+#otro bloque try-except poruqe vamos a manejar errorer dentro de calcular tasa error. 
 tasa_error_id_participante = calcular_tasa_error(datos_validos, id_participante)
-#cambiaria para que el argumento de estas funciones sea participante_pedido
+ #cambiar el argumento de estas funciones para que sea participante_pedido
 print(f"La tasa de error del participante es: {tasa_error_id_participante}")
 

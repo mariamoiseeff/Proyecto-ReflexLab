@@ -54,7 +54,8 @@ def cargar_datos(ruta_archivo):
             from src.validacion_datos import validar_registro
             try: 
                 parseo_validado = validar_registro(parseo)
-            except ValueError: 
+            except ValueError as e: 
+                print(e)
                 print("error en la carga de datos porque hay datos invalidos en esta linea, entonces se descarta.")
                 continue
             
