@@ -22,5 +22,12 @@ Errores y Validaciones:
     - posible error es que ingresen un numero negativo, lo manejamos dentro de la funcion y en el codigo principal lanzando ValueError, deteniendo la ejecucion del programa en ambos lados. 
     - posible error es que no se pueda convertir en un entero, lo manejamos en el codigo principal con bloque try-except
     - posible error es que ingresen ID de un participante que no exista en nuestro registro de datos. Lo manejamos dentro de la funcion lanznado un error si no esta dentro de una lista de posibles valores que armamos al recorrer los datos. 
+- Codigo principal:
+    - Cargar_datos puede laznar una excepcion si algun dato es invalido, por es usamos un bloque try except al llamar esta funcion. Si hay un error no se ejecuta el resto del programa.  
+    - Id ingresado puede ser invalido entonces usamos un try-except. Si es invalido, no se ejecuta el resto del programa.
+    - Pueden haber problemas con el filtrado del participante, por eso llamamos a la funcion dentro de un try-except
+        - Si hay un error, se detiene 
+        - Si no hay un error, continua el programa para calcular las metricas 
+    - Como las funciones de promedio y tasa error pueden lanzar errores, cada una va con su bloque try-except
 
 
