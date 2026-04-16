@@ -1,6 +1,6 @@
 def parsear_linea(linea):
     '''
-    
+    separa linea de datos, convirtiendolos en elementos de una lista. 
 
     Parameters
     ----------
@@ -28,12 +28,13 @@ def parsear_linea(linea):
     
 def cargar_datos(ruta_archivo):
     '''
-    abrir el archivo, recorrer las líneas, aplicar parseo, generar diccionario por participante, devolver lista de registros de participantes
+    abrir el archivo, recorrer las líneas, aplicar parseo, generar diccionario por participante, 
+    devolver lista de registros de participantes
     
     Parameters
     ----------
     ruta : str
-        ruta que recorre
+        ruta que lleva y abre un archivo con datos. 
 
     Returns
     -------
@@ -47,10 +48,7 @@ def cargar_datos(ruta_archivo):
     with open (ruta_archivo, "r") as archivo:
         for linea in archivo:
             parseo = parsear_linea(linea)
-            print(parseo)
-           
-            #si encontro dato invalido, no tomarlo en cuenta, volver al ciclo for a ver la siguiente linea: 
-            
+                       
             from src.validacion_datos import validar_registro
             try: 
                 parseo_validado = validar_registro(parseo)
@@ -59,7 +57,7 @@ def cargar_datos(ruta_archivo):
                 print("error en la carga de datos porque hay datos invalidos en esta linea, entonces se descarta.")
                 continue
             
-            id_part = int(parseo[0])
+            id_part = int(parseo_validado[0])
             
             if id_part not in registros_participantes:
                 registros_participantes[id_part] = {"id_participante": id_part,
@@ -81,5 +79,3 @@ def cargar_datos(ruta_archivo):
     
     registros = list(registros_participantes.values())
     return registros
-
-#comentario: cambiaria el codigo para que vaya haciendo lista segun los trials y de todos los campos por participante

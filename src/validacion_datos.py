@@ -6,13 +6,12 @@ def validar_registro(registro):
     Parameters
     ----------
     registro : lista
-    lista de str de valores ya parseados(separados)
-    
+        lista de str de valores ya parseados(separados)
 
     Returns
     -------
     lista
-    lista de valores verificados separados en sus categorias
+        lista de valores verificados separados en sus categorias
     
     Raises
     ------
