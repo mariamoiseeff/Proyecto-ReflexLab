@@ -26,6 +26,7 @@ if datos_validos is not None:
         try:
             # Filtrar participante
             participante_pedido = filtrar_por_participante(datos_validos, id_participante)
+            print(participante_pedido)
         except ValueError as e:
             print (f"Error: {e}")
             participante_pedido = None

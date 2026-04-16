@@ -6,7 +6,7 @@ def calcular_tiempo_reaccion_promedio(registro_participante):
     Parameters
     ----------
     registro_participante : dicc
-        diccionarios con los datos de un participante previamente elegido.
+        diccionario con los datos de un participante previamente elegido.
 
     Returns
     -------
@@ -32,7 +32,7 @@ def calcular_tasa_error(registro_participante):
     Parameters
     ----------
     registro_participante : dicc
-        diccionarios con los datos de un participante previamente elegido.
+        diccionario con los datos de un participante previamente elegido.
 
     Returns
     -------
