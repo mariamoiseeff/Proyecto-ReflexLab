@@ -12,8 +12,12 @@ try:
         raise ValueError("El id del participante no puede ser negativo ")
 except:
     raise ValueError("El id es invalido")
-else:
+
+try: 
     participante_pedido = filtrar_por_participante(datos_validos, id_participante)
+except ValueError as e: 
+    print(e)
+else: 
     print(participante_pedido)        
 
 #haria bloque try-except porque vamos a manejar errores dentro del promedio

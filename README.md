@@ -18,3 +18,9 @@ Errores y Validaciones:
     - un posible error es que la lista de tiempos de reaccion este vacia, lo manejamos lanzando un error para que se detenga la ejecucion de la funcion. 
 - Funcion calcular_tasa_error: 
     - un posible error es que la lista de respuestas este vacia, lo manejamos lanzando un error para que se detenga la ejecucion de la funcion. 
+- Funcion filtrar_por_participante: 
+    - posible error es que ingresen un numero negativo, lo manejamos dentro de la funcion y en el codigo principal lanzando ValueError, deteniendo la ejecucion del programa en ambos lados. 
+    - posible error es que no se pueda convertir en un entero, lo manejamos en el codigo principal con bloque try-except
+    - posible error es que ingresen ID de un participante que no exista en nuestro registro de datos. Lo manejamos dentro de la funcion lanznado un error si no esta dentro de una lista de posibles valores que armamos al recorrer los datos. 
+
+
