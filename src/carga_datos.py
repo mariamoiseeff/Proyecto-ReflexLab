@@ -1,6 +1,6 @@
 def parsear_linea(linea):
     '''
-    separa linea de datos, convirtiendolos en elementos de una lista. 
+    
 
     Parameters
     ----------
@@ -10,20 +10,63 @@ def parsear_linea(linea):
     Returns
     -------
     list
-        lista de str con datos separados
+        lista de datos separados y convertidos 
     '''
     
+    if len(linea) == 0:
+        raise ValueError("Error en funcion parseo: La linea esta vacia")
+    
     partes = linea.strip().split(",")
+    if len(partes) != 8:
+        raise ValueError("Error en funcion parseo: Faltan columnas en la linea")
+    try: 
+        id_part = int(partes[0])
+    except:
+        raise TypeError("Error en funcion parseo: El id tiene que ser un numero entero")
     
+    try: 
+        trial = int(partes[1])
+    except: 
+        raise TypeError("Error en funcion parseo: El trial tiene que ser un numero entero")
+        
+    try:
+        estimulo = str(partes[2])
+    except:
+        raise TypeError("Error en funcion parseo: El estimulo tiene que ser un string")
     
-    return[partes[0], 
-           partes[1], 
-           partes[2], 
-           partes[3], 
-           partes[4], 
-           partes[5], 
-           partes[6], 
-           partes[7]]
+    try: 
+        t_inicio = float(partes[3])
+    except:
+        raise TypeError("Error en funcion parseo: El timepo de inicuio tiene que ser un float")
+
+    respuesta = partes[4] 
+    if respuesta == "True":
+        respuesta = True 
+    elif respuesta == "False":
+        respuesta = False
+    else:
+        raise TypeError("Error en funcion parseo: La respuesta tiene que ser True o False")
+    
+    try:
+        t_reaccion = float(partes[5])
+    except: TypeError("Error en funcion parseo: El tiempo de reaccion tiene que ser un float")
+    
+    try: 
+        resultado_respuesta = str(partes[6])
+    except: TypeError("Error en funcion parseo: El resultado de respuesta tiene que ser un string")
+    
+    try:
+        condicion = str(partes[7])
+    except: TypeError("Error en funcion parseo: La condicion tiene que ser un string") 
+    
+    return[id_part, 
+           trial, 
+           estimulo, 
+           t_inicio, 
+           respuesta, 
+           t_reaccion, 
+           resultado_respuesta, 
+           condicion]
    
     
 def cargar_datos(ruta_archivo):
@@ -47,7 +90,12 @@ def cargar_datos(ruta_archivo):
   
     with open (ruta_archivo, "r") as archivo:
         for linea in archivo:
-            parseo = parsear_linea(linea)
+            
+            try: 
+                parseo = parsear_linea(linea)
+            except TypeError as e:
+                print(f"Esta linea se descarta: {e}")
+                continue
                        
             from src.validacion_datos import validar_registro
             try: 
