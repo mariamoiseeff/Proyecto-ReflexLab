@@ -30,4 +30,47 @@ Errores y Validaciones:
         - Si no hay un error, continua el programa para calcular las metricas 
     - Como las funciones de promedio y tasa error pueden lanzar errores, cada una va con su bloque try-except
 
+Objetos:
+modelariamos el sistema usando objetos dividiéndolo en 3 clases diferentes: ensayo, participante y experimento.
+
+Clase Ensayo:
+
+    Atributos:			
+        numero_ensayo → entero que identifica el número de ensayo
+        estimulo → string que indica el tipo de estímulo presentado 
+        t_inicio → número que representa el tiempo de inicio del estímulo
+        respuesta → booleano que indica si el participante respondió o no
+        tiempo_reaccion → número que representa el tiempo de reacción, en milisegundos
+        resultado_respuesta → string que indica si la respuesta fue correcta o incorrecta
+        condicion → string que indica la condición experimental 
+
+    Métodos:
+        es_correcto() → retorna True si el resultado del ensayo fue correcto
+        es_error_comision() → retorna True si el participante respondió ante un estímulo No-Go, cuando no debía hacerlo
+        es_error_omision() → retorna True si el participante no respondió ante un estímulo Go, cuando debía hacerlo
+
+Clase Participante:
+
+    Atributos:
+        id_participante → entero que identifica de forma única al participante
+        ensayos → lista de objetos de tipo Ensayo que contiene todos los ensayos registrados para ese participante
+
+    Métodos:
+        agregar_ensayo(ensayo) → incorpora un objeto Ensayo a la lista de ensayos del participante
+        calcular_tiempo_reaccion_promedio() → calcula y retorna el promedio de los tiempos de reacción de los ensayos correctos
+        calcular_tasa_error() → calcula y retorna la proporción de respuestas incorrectas sobre el total de ensayos
+        errores_comision() → cuenta y retorna la cantidad de ensayos donde el participante respondió ante un estímulo No-Go
+        errores_omision() → cuenta y retorna la cantidad de ensayos donde el participante no respondió ante un estímulo Go
+
+Clase Experimento:
+
+    Atributos:
+        ruta → string con la ruta relativa al archivo CSV
+        participantes → lista de objetos de tipo Participante cargados desde el archivo
+
+    Métodos:
+        validar_archivo() → verifica que la ruta exista, que el archivo pueda abrirse y que no esté vacío
+        validar_linea(linea) → verifica que cada línea del archivo tenga la cantidad correcta de columnas, los tipos de datos esperados y los valores dentro de los rangos válidos
+        cargar_datos() → lee el archivo CSV, aplica las validaciones y construye los objetos Participante y Ensayo correspondientes
+        buscar_participante(id_participante) → busca y retorna el objeto Participante que corresponde al ID ingresado
 
