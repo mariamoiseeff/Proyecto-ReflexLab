@@ -17,10 +17,13 @@ def filtrar_por_participante(datos, id_participante):
     
     Raises: 
         ValueError si ID ingresado es negativo o si no se encuentra dentro de los posibles ID.
+        ValueError si la lista de la base de datos esta vacia. 
     
     '''
     if id_participante <= 0:
-        raise ValueError("El id del participante no puede ser negativo ")
+        raise ValueError("Error en funcion cargar datos: El id del participante no puede ser negativo ")
+    if len(datos) == 0: 
+        raise ValueError("Error en funcion cargar datos: la base de datos esta vacia. ")
     
     posibles_id = []
     
@@ -30,4 +33,4 @@ def filtrar_por_participante(datos, id_participante):
             return registro_participante
   
     if id_participante not in posibles_id: 
-        raise ValueError("ID invalido, no se encuentra dentro de los ID registrados")
+        raise ValueError("Error en funcion cargar datos: ID no se encuentra dentro de los ID registrados")

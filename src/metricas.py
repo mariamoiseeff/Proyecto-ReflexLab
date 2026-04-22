@@ -19,7 +19,7 @@ def calcular_tiempo_reaccion_promedio(registro_participante):
    
    tiempos_reaccion = registro_participante["tiempo_reaccion"]
    if len(tiempos_reaccion) == 0: 
-        raise ValueError ("Error, lista vacia. No se puede calcular el promedio")
+        raise ValueError ("Error en la funcion de calcular tiempo promedio, la lista esta vacia.")
         
    promedio = sum(tiempos_reaccion) / len(tiempos_reaccion)
    return promedio
@@ -46,7 +46,7 @@ def calcular_tasa_error(registro_participante):
      
     cantidad_total = len(registro_participante["resultado_respuesta"])
     if cantidad_total == 0:
-        raise ValueError("Error, lista de respuestas vacias. No se puede calcular tasa de error")
+        raise ValueError("Error en la funcion de calcular tasa de error, la lista de respuestas esta vacia.")
     
     cantidad_incorrectas = 0
     
