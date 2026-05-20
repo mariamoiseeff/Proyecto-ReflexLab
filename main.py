@@ -4,12 +4,12 @@ from src.metricas import calcular_tiempo_reaccion_promedio
 from src.metricas import calcular_tasa_error
 
 
-ruta = "datos/ReflexLab_mock_data_error02.csv"
+ruta = "datos/ReflexLab_mock_data_error10.csv"
 
 # Cargar datos
 try:
     datos_validos = cargar_datos(ruta)
-except ValueError as e:
+except (ValueError, TypeError) as e:
     print(e)  
     datos_validos = None
 
@@ -45,7 +45,6 @@ if datos_validos is not None:
            try:                
                 tasa_error = calcular_tasa_error(participante_pedido)
                 print(f"La tasa de error del participante es: {tasa_error}%")
-
            except ValueError as e: 
                 print(e) 
 

@@ -91,19 +91,13 @@ def cargar_datos(ruta_archivo):
     with open (ruta_archivo, "r") as archivo:
         for linea in archivo:
             
-            try: 
-                parseo = parsear_linea(linea)
-            except TypeError as e:
-                print(f"Esta linea se descarta: {e}")
-                continue
+           
+            parseo = parsear_linea(linea)
                        
             from src.validacion_datos import validar_registro
-            try: 
-                parseo_validado = validar_registro(parseo)
-            except ValueError as e: 
-                print(e)
-                print("error en la carga de datos porque hay datos invalidos en esta linea, entonces se descarta.")
-                continue
+       
+            parseo_validado = validar_registro(parseo)
+         
             
             id_part = int(parseo_validado[0])
             

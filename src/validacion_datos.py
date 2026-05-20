@@ -47,7 +47,9 @@ def validar_registro(registro):
    
     t_inicio = registro[3]
     if t_inicio < 0: 
-        raise ValueError("Error en funcion de validacion: tiempo de inicio no puede ser negativo")
+        raise ValueError("Error en funcion de validacion: El tiempo de inicio no puede ser negativo")
+    elif t_inicio != trial - 1.0:
+        raise ValueError("Error en funcion de validacion: El tiempo de inicio no es lineal")
     else: 
         datos_validados.append(t_inicio)
     
@@ -58,6 +60,8 @@ def validar_registro(registro):
     t_reaccion = registro[5]
     if t_reaccion < 0: 
         raise ValueError("Error en funcion de validacion: tiempo de reaccion no puede ser negativo")
+    if t_reaccion > 500:
+        raise ValueError("Error en funcion de validacion: tiempo de reaccion es invalido")
     else: 
         datos_validados.append(t_reaccion)
 
