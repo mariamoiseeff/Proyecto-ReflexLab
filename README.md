@@ -73,7 +73,6 @@ Clase Experimento:
         validar_linea(linea) → verifica que cada línea del archivo tenga la cantidad correcta de columnas, los tipos de datos esperados y los valores dentro de los rangos válidos
         cargar_datos() → lee el archivo CSV, aplica las validaciones y construye los objetos Participante y Ensayo correspondientes
         buscar_participante(id_participante) → busca y retorna el objeto Participante que corresponde al ID ingresado
-<<<<<<< Updated upstream
         
 PANDAS: 
 - en la funcion de carga_datos(), podriamos abrir y leer el archivo con los datos usando pandas, dejando sin necesidad a la funcion de parsear y separar las lineas. La funcion no devolveria lista de diccionarios, sino un DataFrame. 
@@ -81,8 +80,5 @@ PANDAS:
 - la metrica calcular_tiempo_reaccion_promedio() se podria calcular con funciones agregadas ('mean') 
 - la metrica calcular_tasa_error se podria calcular usando filtros de mascaras booleanas para encontrar las respuestas incorrectas (enves de usar for y contadores) 
 - para la funcion de validacion de datos, no recibiria las lineas parseadas, sino que el DataFrame. Podemos validar las columnas enteras con filtros. 
-=======
 
-Pandas:
 
->>>>>>> Stashed changes
