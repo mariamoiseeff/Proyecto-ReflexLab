@@ -1,4 +1,3 @@
-
 def filtrar_por_participante(datos, id_participante):
     '''
     seleccionar los datos correspondientes a un participante y lo devuelve
@@ -28,6 +27,6 @@ def filtrar_por_participante(datos, id_participante):
     if id_participante not in list(datos["id_participante"]):
         raise ValueError("Error en funcion cargar datos: El id del participante no se encuentra en la base de datos")
     
-    filtro_participante = datos.loc[id_participante]
+    filtro_participante = datos[datos["id_participante"] == id_participante]
     
     return filtro_participante 
