@@ -12,7 +12,7 @@ def generar_graficos(df):
     ----------
     df : pandas.DataFrame
         DataFrame con los datos del experimento ya cargados y validados.
-        Debe contener las columnas: 'tiempo_reaccion', 'condicion', 'trial'.
+        Debe contener las columnas: 'tiempo_reaccion','condicion', 'trial'.
  
     Returns
     -------
