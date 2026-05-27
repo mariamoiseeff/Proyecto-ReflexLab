@@ -4,7 +4,7 @@ from src.procesamiento_datos import filtrar_por_participante
 from src.metricas import calcular_tiempo_reaccion_promedio
 from src.metricas import calcular_tasa_error
 
-ruta = "datos/ReflexLab_mock_data_error10.csv"
+ruta = "datos/ReflexLab_mock_data.csv"
 registro = pd.read_csv(ruta)
 
 # Cargar datos

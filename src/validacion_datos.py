@@ -47,5 +47,5 @@ def validar_registro(df):
     # condicion
     if (df["condicion"] not in ["alta_go" , "balanceada"]): 
         raise ValueError("Error en funcion de validacion: condicion experimental invalida, puede ser unicamente 'alta_go' o 'balanceada' ")
-
-
+    
+    return df

@@ -27,9 +27,11 @@ def cargar_datos(registro):
   
                        
     from src.validacion_datos import validar_registro
-    
-    registro_validado = validar_registro(registro)
-    
+    try:
+        registro_validado = validar_registro(registro)
+    except ValueError as e:
+        print(e)
+
     registro_validado_etiquetado = registro_validado.set_index('id_participante')
             
     return registro_validado_etiquetado
