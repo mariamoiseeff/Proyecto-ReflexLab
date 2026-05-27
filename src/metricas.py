@@ -5,8 +5,8 @@ def calcular_tiempo_reaccion_promedio(datos):
     
     Parameters
     ----------
-    datos: dataframe
-        dataframe con los datos de todos los participantes
+    datos: serie
+        serie con los datos de todos los participantes
 
     Returns
     -------
@@ -15,7 +15,7 @@ def calcular_tiempo_reaccion_promedio(datos):
    
     '''
    
-   tiempos_promedios = datos.groupby("id_participante")["tiempo_reaccion"].mean()
+   tiempos_promedios = datos.groupby("id_participante")["tiempo_reaccion"].mean().reset_index()
    return tiempos_promedios
              
         
@@ -25,18 +25,18 @@ def calcular_tasa_error(datos):
 
     Parameters
     ----------
-    datos : dataframe
-        dataframe con los datos de todos los participantes
+    datos : serie
+        serie con los datos de todos los participantes
 
     Returns
     -------
-    dataframe
+    serie
         resultado de division de respuestas incorrectas / respuestas totales de todos los participantes
 
     '''
     
     datos['es_incorrecta'] = datos["resultado_respuesta"] == 'incorrecto'
-    tasa_por_participante = datos.groupby('id_participante')['es_incorrecta'].mean() * 100
+    tasa_por_participante = datos.groupby('id_participante')['es_incorrecta'].mean().mul(100).reset_index(name = "tasa_error")
 
     
     return  tasa_por_participante
