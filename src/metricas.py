@@ -36,7 +36,7 @@ def calcular_tasa_error(datos):
     '''
     
     datos['es_incorrecta'] = datos["resultado_respuesta"] == 'incorrecto'
-    tasa_por_participante = datos.groupby('participante')['es_incorrecta'].mean() * 100
+    tasa_por_participante = datos.groupby('id_participante')['es_incorrecta'].mean() * 100
 
     
     return  tasa_por_participante
