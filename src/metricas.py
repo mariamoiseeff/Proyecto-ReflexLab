@@ -1,62 +1,47 @@
 #metricas
-def calcular_tiempo_reaccion_promedio(registro_participante):    
+def calcular_tiempo_reaccion_promedio(datos):    
    '''
     promedio de tiempos de reaccion de todos los participantes
     
     Parameters
     ----------
-    registro_participante : dicc
-        diccionario con los datos de un participante previamente elegido.
+    datos: dataframe
+        dataframe con los datos de todos los participantes
 
     Returns
     -------
-    float
-        promedio: suma de todos los tiempos de reaccion dividido la cantidad.
-        
-    Raises: 
-        ValueError si la lista de tiempos de reaccion dentro del registro_participante esta vacia
+    dataframe
+        promedios de los tiempos de reaccion de todos los partiicpantes (2 columnas)
+   
     '''
    
-   tiempos_reaccion = registro_participante["tiempo_reaccion"]
-   if len(tiempos_reaccion) == 0: 
-        raise ValueError ("Error en la funcion de calcular tiempo promedio, la lista esta vacia.")
-        
-   promedio = sum(tiempos_reaccion) / len(tiempos_reaccion)
-   return promedio
+   tiempos_promedios = datos.groupby("id_participante")["t_reaccion"].mean()
+   return tiempos_promedios
              
         
-def calcular_tasa_error(registro_participante):
+def calcular_tasa_error(datos):
     '''
-    calcula  proporción de respuestas incorrectas
+    calcula  proporción de respuestas incorrectas de todos los articipantes
 
     Parameters
     ----------
-    registro_participante : dicc
-        diccionario con los datos de un participante previamente elegido.
+    datos : dataframe
+        dataframe con los datos de todos los participantes
 
     Returns
     -------
-    float
-        resultado de division de respuestas incorrectas / respuestas totales.
-    
-    Raises: 
-        ValueError si la lista de respuestas esta vacia.
+    dataframe
+        resultado de division de respuestas incorrectas / respuestas totales de todos los participantes
 
     '''
-     
-    cantidad_total = len(registro_participante["resultado_respuesta"])
-    if cantidad_total == 0:
-        raise ValueError("Error en la funcion de calcular tasa de error, la lista de respuestas esta vacia.")
     
-    cantidad_incorrectas = 0
+    datos['es_incorrecta'] = datos["resultado_respuesta"] == 'incorrecto'
+    tasa_por_participante = datos.groupby('participante')['es_incorrecta'].mean() * 100
+
     
-    for respuesta in registro_participante["resultado_respuesta"]:
-        if respuesta == "incorrecto":
-            cantidad_incorrectas += 1
-        
-    tasa_error = cantidad_incorrectas / cantidad_total 
-    return tasa_error 
-            
+    return  tasa_por_participante
+
+    
             
             
              
