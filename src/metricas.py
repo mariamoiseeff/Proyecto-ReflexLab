@@ -15,13 +15,13 @@ def calcular_tiempo_reaccion_promedio(datos):
    
     '''
    
-   tiempos_promedios = datos.groupby("id_participante")["t_reaccion"].mean()
+   tiempos_promedios = datos.groupby("id_participante")["tiempo_reaccion"].mean()
    return tiempos_promedios
              
         
 def calcular_tasa_error(datos):
     '''
-    calcula  proporción de respuestas incorrectas de todos los articipantes
+    calcula  proporción de respuestas incorrectas de todos los participantes
 
     Parameters
     ----------

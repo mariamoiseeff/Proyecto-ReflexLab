@@ -32,11 +32,11 @@ def validar_registro(df):
         raise ValueError("Error en funcion de validacion: tiempo de inicio no puede ser negativo")
 
     #validar respuesta tiene que ser solo True (si respondio) y False (si no respondio) -> ya se maneja en el parseo
-    if not (df["respuesta"].dtype == bool): 
+    if (df["respuesta"].dtype != bool): 
         raise ValueError("Error en funcion de validacion: el dato no es booleano")
     
     #tiempo de reaccion
-    if (df[" t_reaccion"] < 0).any(): 
+    if (df["tiempo_reaccion"] < 0).any(): 
         raise ValueError("Error en funcion de validacion: tiempo de reaccion no puede ser negativo")
 
     #resultado_respuesta
@@ -44,7 +44,7 @@ def validar_registro(df):
         raise ValueError("Error en funcion de validacion resultado: resultado de respuesta puede ser unicamente 'correcto' o 'incorrecto'")
    
     # condicion
-    if not (df["condicion"].isin(["alta_go" , "balanceada"])).any(): 
+    if (~df["condicion"].isin(["alta_go" , "balanceada"])).any(): 
         raise ValueError("Error en funcion de validacion: condicion experimental invalida, puede ser unicamente 'alta_go' o 'balanceada' ")
     
     return df
