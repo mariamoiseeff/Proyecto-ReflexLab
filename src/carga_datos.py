@@ -30,7 +30,7 @@ def cargar_datos(registro):
     try:
         registro_validado = validar_registro(registro)
     except ValueError as e:
-        print(e)
+        raise e
 
     registro_validado_etiquetado = registro_validado.set_index('id_participante')
             

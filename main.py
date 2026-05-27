@@ -33,14 +33,16 @@ if datos_validos is not None:
             print (e)
             participante_pedido = None
             
-        if participante_pedido is not None:
 
-            # Calcular promedio
-            promedio = calcular_tiempo_reaccion_promedio(participante_pedido)
-            print(f"El promedio del participante es: {promedio} ms") 
 
-            # Calcular tasa de error               
-            tasa_error = calcular_tasa_error(participante_pedido)
-            print(f"La tasa de error del participante es: {tasa_error}%")
+    # Calcular promedio
+    promedio = calcular_tiempo_reaccion_promedio(datos_validos)
+    print(f"El promedio del participante es: {promedio} ms") 
+
+    # Calcular tasa de error               
+    tasa_error = calcular_tasa_error(datos_validos)
+    print(f"La tasa de error del participante es: {tasa_error}%")
+            
+    
 
  
