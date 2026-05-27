@@ -24,7 +24,7 @@ def filtrar_por_participante(datos, id_participante):
         raise ValueError("Error en funcion cargar datos: El id del participante no puede ser negativo ")
     if datos.empty: 
         raise ValueError("Error en funcion cargar datos: la base de datos esta vacia. ")
-    if id_participante not in list(datos["id_participante"]):
+    if id_participante not in datos.index:
         raise ValueError("Error en funcion cargar datos: El id del participante no se encuentra en la base de datos")
     
     filtro_participante = datos[datos["id_participante"] == id_participante]

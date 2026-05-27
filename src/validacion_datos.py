@@ -23,7 +23,7 @@ def validar_registro(df):
     
     #validar estimulo solo go o no go y validar que sea str que pueda convertirse todo a minusculas
 
-    if not (df["estimulo"].isin["go" , "nogo"]).any(): 
+    if not (df["estimulo"].isin(["go" , "nogo"])).any(): 
         raise ValueError("Error en funcion de validacion: estimulo invalido. Solo puede ser 'go' o 'nogo'")
  
     #validar tiempo de inicio
@@ -31,7 +31,6 @@ def validar_registro(df):
     if (df["t_inicio"] < 0).any(): 
         raise ValueError("Error en funcion de validacion: tiempo de inicio no puede ser negativo")
 
-    
     #validar respuesta tiene que ser solo True (si respondio) y False (si no respondio) -> ya se maneja en el parseo
     if not (df["respuesta"].dtype == bool): 
         raise ValueError("Error en funcion de validacion: el dato no es booleano")
@@ -41,11 +40,11 @@ def validar_registro(df):
         raise ValueError("Error en funcion de validacion: tiempo de reaccion no puede ser negativo")
 
     #resultado_respuesta
-    if not (df["resultado_respuesta"].isin["correcto", "incorrecto"]).any():
+    if not (df["resultado_respuesta"].isin(["correcto", "incorrecto"])).any():
         raise ValueError("Error en funcion de validacion resultado: resultado de respuesta puede ser unicamente 'correcto' o 'incorrecto'")
    
     # condicion
-    if not (df["condicion"].isin["alta_go" , "balanceada"]).any(): 
+    if not (df["condicion"].isin(["alta_go" , "balanceada"])).any(): 
         raise ValueError("Error en funcion de validacion: condicion experimental invalida, puede ser unicamente 'alta_go' o 'balanceada' ")
     
     return df
