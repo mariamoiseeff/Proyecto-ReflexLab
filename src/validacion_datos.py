@@ -27,19 +27,10 @@ def validar_registro(df):
         raise ValueError("Error en funcion de validacion: estimulo invalido. Solo puede ser 'go' o 'nogo'")
  
     #validar tiempo de inicio
-<<<<<<< Updated upstream
-   
-    t_inicio = registro[3]
-    if t_inicio < 0: 
-        raise ValueError("Error en funcion de validacion: El tiempo de inicio no puede ser negativo")
-    elif t_inicio != trial - 1.0:
-        raise ValueError("Error en funcion de validacion: El tiempo de inicio no es lineal")
-    else: 
-        datos_validados.append(t_inicio)
-=======
+
     if (df["t_inicio"] < 0): 
         raise ValueError("Error en funcion de validacion: tiempo de inicio no puede ser negativo")
->>>>>>> Stashed changes
+
     
     #validar respuesta tiene que ser solo True (si respondio) y False (si no respondio) -> ya se maneja en el parseo
     if (df["respuesta"].dtype!= bool): 
@@ -48,15 +39,7 @@ def validar_registro(df):
     #tiempo de reaccion
     if (df[" t_reaccion"] < 0): 
         raise ValueError("Error en funcion de validacion: tiempo de reaccion no puede ser negativo")
-<<<<<<< Updated upstream
-    if t_reaccion > 500:
-        raise ValueError("Error en funcion de validacion: tiempo de reaccion es invalido")
-    else: 
-        datos_validados.append(t_reaccion)
 
-=======
-    
->>>>>>> Stashed changes
     #resultado_respuesta
     if (df["resultado_respuesta"] not in ["correcto", "incorrecto"]):
         raise ValueError("Error en funcion de validacion resultado: resultado de respuesta puede ser unicamente 'correcto' o 'incorrecto'")
