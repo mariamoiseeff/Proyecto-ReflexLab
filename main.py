@@ -1,14 +1,15 @@
+import pandas as pd
 from src.carga_datos import cargar_datos
 from src.procesamiento_datos import filtrar_por_participante
 from src.metricas import calcular_tiempo_reaccion_promedio
 from src.metricas import calcular_tasa_error
 
-
-ruta = "datos/ReflexLab_mock_data_error10.csv"
+ruta = "datos/ReflexLab_mock_data.csv"
+registro = pd.read_csv(ruta)
 
 # Cargar datos
 try:
-    datos_validos = cargar_datos(ruta)
+    datos_validos = cargar_datos(registro)
 except (ValueError, TypeError) as e:
     print(e)  
     datos_validos = None
@@ -27,25 +28,22 @@ if datos_validos is not None:
         try:
             # Filtrar participante
             participante_pedido = filtrar_por_participante(datos_validos, id_participante)
-            print(participante_pedido)
+            participante_pedido.head()
         except ValueError as e:
             print (e)
             participante_pedido = None
             
-        if participante_pedido is not None:
 
-            # Calcular promedio
-           try:             
-               promedio = calcular_tiempo_reaccion_promedio(participante_pedido)
-               print(f"El promedio del participante es: {promedio} ms") 
-           except ValueError as e:
-               print (e)    
-              
-            # Calcular tasa de error 
-           try:                
-                tasa_error = calcular_tasa_error(participante_pedido)
-                print(f"La tasa de error del participante es: {tasa_error}%")
-           except ValueError as e: 
-                print(e) 
+
+    # Calcular promedio
+    promedio = calcular_tiempo_reaccion_promedio(datos_validos)
+    print("El promedio participantes: ")
+    print(promedio) 
+
+    # Calcular tasa de error               
+    tasa_error = calcular_tasa_error(datos_validos)
+    print(tasa_error)
+            
+    
 
  
