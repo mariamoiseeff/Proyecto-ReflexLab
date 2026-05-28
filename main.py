@@ -3,6 +3,7 @@ from src.carga_datos import cargar_datos
 from src.procesamiento_datos import filtrar_por_participante
 from src.metricas import calcular_tiempo_reaccion_promedio
 from src.metricas import calcular_tasa_error
+from src.graficos import generar_graficos
 
 ruta = "datos/ReflexLab_mock_data.csv"
 registro = pd.read_csv(ruta)
@@ -44,6 +45,5 @@ if datos_validos is not None:
     tasa_error = calcular_tasa_error(datos_validos)
     print(tasa_error)
             
-    
 
  
