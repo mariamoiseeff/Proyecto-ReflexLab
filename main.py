@@ -45,5 +45,6 @@ if datos_validos is not None:
     tasa_error = calcular_tasa_error(datos_validos)
     print(tasa_error)
             
+graficos = generar_graficos(datos_validos)    
 
  
