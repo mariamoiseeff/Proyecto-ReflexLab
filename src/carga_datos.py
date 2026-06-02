@@ -10,7 +10,7 @@ def cargar_datos(registro):
     Returns
     -------
     dataframe
-        dataframe de informacion validada y agrupada por participantes
+        dataframe de informacion validada 
 
     '''
     

@@ -5,8 +5,8 @@ def calcular_tiempo_reaccion_promedio(datos):
     
     Parameters
     ----------
-    datos: serie
-        serie con los datos de todos los participantes
+    datos: df
+        df con los datos de todos los participantes
 
     Returns
     -------
@@ -25,12 +25,12 @@ def calcular_tasa_error(datos):
 
     Parameters
     ----------
-    datos : serie
-        serie con los datos de todos los participantes
+    datos : df
+        df con los datos de todos los participantes
 
     Returns
     -------
-    serie
+    df
         resultado de division de respuestas incorrectas / respuestas totales de todos los participantes
 
     '''
