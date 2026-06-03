@@ -81,4 +81,10 @@ PANDAS:
 - la metrica calcular_tasa_error se podria calcular usando filtros de mascaras booleanas para encontrar las respuestas incorrectas (enves de usar for y contadores) 
 - para la funcion de validacion de datos, no recibiria las lineas parseadas, sino que el DataFrame. Podemos validar las columnas enteras con filtros. 
 
+Guia de Ejecucion de la Interfaz Web:
+- Para abrir el dashboard, hay que pararse en la carpeta del proyecto desde la terminal y correr el comando streamlit run app.py. 
+- Se carda el archivo CSV del experimento
+- Se valida el archivo, si se encuentran errores, se muetsra mensaje de error y se detiene el programa
+- Se muestran las métricas
+- Se muetsran los gráficos
 
